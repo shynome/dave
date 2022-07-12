@@ -141,6 +141,7 @@ func updateConfig(cfg *Config, updatedCfg *Config) {
 		}
 	}
 	for username, v := range updatedCfg.Users {
+		v.Password = GenHash([]byte(v.Password))
 		if cfg.Users[username] == nil {
 			log.WithField("user", username).Info("Added User to configuration")
 			cfg.Users[username] = v
