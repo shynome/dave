@@ -79,6 +79,7 @@ func ParseConfig() *Config {
 		}
 	}
 
+	updateConfig(cfg, cfg)
 	viper.WatchConfig()
 	viper.OnConfigChange(cfg.handleConfigUpdate)
 
